@@ -1,21 +1,17 @@
 /*Model*/
-var todos = [
-    {
-        todo:'todo 1',
-        completed: false
-    },
-    {
-        todo:'todo 2',
-        completed:true
-    }
-];
+var todos = [];
 
 /******************************************************************************/
 
 /*Controller*/
 
-//chargement des datas
+//chargement des datas via localStorage
 window.onload = function() {
+
+    for (var i = 0; i < localStorage.length; i++) {
+        todos.push(JSON.parse(localStorage[i]));
+    }
+
     generateView();
 };
 
@@ -24,9 +20,11 @@ function addTodo(e){
 
     if (e.charCode === 13) {
         var newTodo = document.getElementById('new-todo').value;
-        todos.unshift({todo:newTodo,completed:false});
-        generateView();
-        document.getElementById('new-todo').value = "";
+        if (newTodo !=="") {
+            todos.unshift({todo:newTodo,completed:false});
+            generateView();
+            document.getElementById('new-todo').value = "";
+        }
     }
 };
 
@@ -37,6 +35,22 @@ function deleteTodo(id) {
     generateView();
 };
 
+//Change le status de completed
+function changeCompleted(id) {
+    todos[id].completed = !todos[id].completed;
+
+    generateView();
+}
+
+//Savegarde dans localStorage les todos
+function saveTodo() {
+
+    localStorage.clear();
+
+    todos.forEach(function (item,index) {
+        localStorage.setItem(index,JSON.stringify(item));
+    });
+};
 /******************************************************************************/
 
 /*View*/
@@ -53,7 +67,9 @@ function generateView() {
                     + index
                     + ' class='
                     + (item.completed?'completed':'')
-                    + '><div class="view"><input class="toggle" type="checkbox"'
+                    + '><div class="view"><input class="toggle" type="checkbox" onclick="changeCompleted('
+                    + index
+                    +')"'
                     + (item.completed?'checked':'')
                     + '><label>'
                     + item.todo
