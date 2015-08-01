@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title> TD1</title>
+
+    <link rel="stylesheet" href="/td1/css/base.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="/td1/css/index.css" media="screen" type="text/css">
+</head>
+
+<body>
+    <section class="todoapp">
+		<header class="header">
+			<h1>todos</h1>
+			<input class="new-todo" id="new-todo"  onkeypress=addTask(event) placeholder="Ajouter une tache?" value="" autofocus>
+		</header>
+
+		<section class="main">
+			<input class="toggle-all" type="checkbox">
+			<label for="toggle-all">Mark all as complete</label>
+			<ul class="todo-list" id="todo-list">
+                <li data-id="3" class="">
+		            <div class="view">
+			            <input class="toggle" type="checkbox" >
+			            <label>task 3</label>
+			            <button class="destroy"></button>
+	                </div>
+	            </li>
+                <li data-id="2" class="">
+		            <div class="view">
+			            <input class="toggle" type="checkbox" >
+			            <label>task 2</label>
+			            <button class="destroy"></button>
+	                </div>
+	            </li>
+                <li data-id="1" class="completed">
+		            <div class="view">
+			            <input class="toggle" type="checkbox" checked>
+			            <label>task 1</label>
+			            <button class="destroy"></button>
+	                </div>
+	            </li>
+            </ul>
+		</section>
+
+		<footer class="footer">
+			<span class="todo-count"></span>
+			<ul class="filters">
+				<li>
+					<a href="#/" class="selected">All</a>
+				</li>
+				<li>
+					<a href="#/active">Active</a>
+				</li>
+				<li>
+					<a href="#/completed">Completed</a>
+				</li>
+			</ul>
+			<button class="clear-completed">Clear completed</button>
+		</footer>
+	</section>
+</body>
+
+<script src="js/app.js"></script>
+</html>
