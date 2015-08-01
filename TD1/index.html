@@ -13,32 +13,18 @@
     <section class="todoapp">
 		<header class="header">
 			<h1>todos</h1>
-			<input class="new-todo" id="new-todo"  onkeypress=addTask(event) placeholder="Ajouter une tache?" value="" autofocus>
+			<input class="new-todo" id="new-todo"  onkeypress=addTodo(event) placeholder="Ajouter une tache?" value="" autofocus>
 		</header>
 
 		<section class="main">
 			<input class="toggle-all" type="checkbox">
 			<label for="toggle-all">Mark all as complete</label>
-			<ul class="todo-list" id="todo-list">
-                <li data-id="3" class="">
-		            <div class="view">
-			            <input class="toggle" type="checkbox" >
-			            <label>task 3</label>
-			            <button class="destroy"></button>
-	                </div>
-	            </li>
-                <li data-id="2" class="">
-		            <div class="view">
-			            <input class="toggle" type="checkbox" >
-			            <label>task 2</label>
-			            <button class="destroy"></button>
-	                </div>
-	            </li>
+			<ul class="todo-list" id="todo-list"  >
                 <li data-id="1" class="completed">
 		            <div class="view">
 			            <input class="toggle" type="checkbox" checked>
 			            <label>task 1</label>
-			            <button class="destroy"></button>
+			            <button class="destroy" onclick="deleteTodo(1)"></button>
 	                </div>
 	            </li>
             </ul>
