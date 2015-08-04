@@ -1,9 +1,11 @@
-/*Model*/
-var todos = [];
+/******************************************************************************/
+/**Model**/
+/******************************************************************************/
+var todos = []; // format JSON
 
 /******************************************************************************/
-
-/*Controller*/
+/**Controller**/
+/******************************************************************************/
 
 //chargement des datas via localStorage
 window.onload = function() {
@@ -26,19 +28,19 @@ function addTodo(e){
             document.getElementById('new-todo').value = "";
         }
     }
-};
+}
 
 //Suppression de la todo
 function deleteTodo(id) {
 
     todos.splice(id,1);
     generateView();
-};
+}
 
 //Change le status de completed
 function changeCompleted(id) {
-    todos[id].completed = !todos[id].completed;
 
+    todos[id].completed = !todos[id].completed;
     generateView();
 }
 
@@ -50,10 +52,33 @@ function saveTodo() {
     todos.forEach(function (item,index) {
         localStorage.setItem(index,JSON.stringify(item));
     });
-};
+}
+
+function dragStart(event,id) {
+
+    event.dataTransfer.setData("Id", id);
+    event.dataTransfer.effectAllowed = 'move';
+
+}
+
+function dragOver(event){
+
+	event.preventDefault();
+	return false;
+}
+
+function dragDrop(event){
+
+	var todo = event.dataTransfer.getData('Id');
+    deleteTodo(todo);
+
+}
+
+/******************************************************************************/
+/**View**/
 /******************************************************************************/
 
-/*View*/
+//Genere la vue en fonction du modele à la suite d'un tick du controller
 function generateView() {
 
     var i = todos.length;
@@ -63,20 +88,13 @@ function generateView() {
 
     todos.forEach(function (item, index, array) {
 
-        strTodos += '<li data-id='
-                    + index
-                    + ' class='
-                    + (item.completed?'completed':'')
-                    + ' draggable="true"><div class="view"><input class="toggle" type="checkbox" onclick="changeCompleted('
-                    + index
-                    +')"'
-                    + (item.completed?'checked':'')
-                    + '><label>'
-                    + item.todo
-                    + '</label><button class="destroy" onclick="deleteTodo('
-                    + index
-                    + ')"></button></div></li> ';
+        strTodos += '<li data-id=' + index + ' class='+ (item.completed?'completed':'')+ '>';
+        strTodos += '<div class="view">';
+        strTodos +='<input class="toggle" type="checkbox" onclick="changeCompleted('+ index +')"' + (item.completed?'checked':'') + '>';
+        strTodos +='<label  draggable="true"  ondragstart="dragStart(event,'+ index +')">'+ item.todo + '</label>';
+        strTodos +='<button class="destroy" onclick="deleteTodo('+ index+ ')"></button>';
+        strTodos +='</div></li> ';
     });
 
     listTodo.innerHTML = strTodos;
-};
+}
