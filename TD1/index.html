@@ -11,15 +11,15 @@
 
 <body>
     <section class="todoapp">
-		<header class="header">
-			<h1>todos</h1>
-			<input class="new-todo" id="new-todo"  onkeypress=addTodo(event) placeholder="Ajouter une tache?" value="" autofocus>
-		</header>
-
-		<section class="main">
-			<ul class="todo-list" id="todo-list"  ></ul>
-		</section>
-	</section>
+    	<header class="header">
+    		<h1>todos</h1>
+    		<input class="new-todo" id="new-todo"  onkeypress=addTodo(event) placeholder="Ajouter une tache?" value="" autofocus>
+    	</header>
+    
+    	<section class="main">
+    		<ul class="todo-list" id="todo-list"  ></ul>
+    	</section>
+    </section>
 
     <input type="button" name="name" value="Save" onclick="saveTodo()">
 
@@ -28,17 +28,8 @@
             <h1>Poubelle</h1>
         </header>
         <div class="dropzone" dropzone="true"  ondragover="dragOver(event)" ondrop="dragDrop(event)" style="background-color: blue; height : 80px"></div>
-
     </section>
 </body>
-
-<!--<li data-id="1" class="completed">
-    <div class="view">
-        <input class="toggle" type="checkbox" checked>
-        <label>task 1</label>
-        <button class="destroy" onclick="deleteTodo(1)"></button>
-    </div>
-</li>-->
 
 <script src="js/app.js"></script>
 </html>
