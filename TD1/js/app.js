@@ -67,7 +67,7 @@ function generateView() {
                     + index
                     + ' class='
                     + (item.completed?'completed':'')
-                    + '><div class="view"><input class="toggle" type="checkbox" onclick="changeCompleted('
+                    + ' draggable="true"><div class="view"><input class="toggle" type="checkbox" onclick="changeCompleted('
                     + index
                     +')"'
                     + (item.completed?'checked':'')
