@@ -2,7 +2,7 @@
         display: block;
       }
 
-      #boxes {
+      .boxes {
         float: left;
         width: 100%;
       }
