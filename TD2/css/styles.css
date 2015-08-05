@@ -44,3 +44,36 @@
       .cow_color {
         font-weight: bold;
       }
+
+      /*TD2.3*/
+      #name_input {
+        float: left;
+        margin-bottom: 20px;
+        margin-right: 20px;
+      }
+
+      #date_input {
+        float: left;
+        margin-bottom: 20px;
+      }
+
+      #year_input {
+        clear:both;
+      }
+
+      .rank_color {
+        width: 20px;
+        margin-top: 2px;
+      }
+
+      /* Etape 2: Votre code CSS doit être ici */
+      .ui-selected{
+          background: red;
+      }
+
+      /* Etape 3: Votre code CSS doit être ici */
+      #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+      #sortable li span { position: absolute; margin-left: -1.3em; }
+
+      /* Etape 4: Votre code CSS doit être ici */
