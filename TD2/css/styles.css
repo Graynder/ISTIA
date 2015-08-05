@@ -12,7 +12,7 @@
         width: 100%;
         margin-top: 10px;
       }
-      
+
       #info {
         float: left;
         margin-top: 5px;
@@ -35,4 +35,12 @@
 
       .cardinal {
         background-color: #993333;
+      }
+
+      /*TD2.1*/
+      #color_change {
+        border: 1px solid;
+      }
+      .cow_color {
+        font-weight: bold;
       }
