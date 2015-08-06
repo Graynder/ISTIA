@@ -81,3 +81,9 @@
         height: 50px;
         width: 50px;
     }
+
+    #draw_buttons {
+      float: left;
+      width: 100%;
+      margin-top: 10px;
+    }
