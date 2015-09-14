@@ -1,7 +1,6 @@
 
 var colorCardinal = "rgb(153, 51, 51)"
 
-
 $(document).ready(function() {
 
     $("#button_toggle_colors").click(function() {
