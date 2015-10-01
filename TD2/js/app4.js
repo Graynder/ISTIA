@@ -48,9 +48,9 @@ $(document).ready(function() {
       ctx.save();
 
       ctx.translate(canvas.width/2,canvas.height/2);
-      //faut faire la rotation mais ca marche pas T_T
       ctx.rotate(40*Math.PI/180);
       draw();
+      
       ctx.restore();
   }
 
