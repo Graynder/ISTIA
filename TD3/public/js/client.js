@@ -30,6 +30,7 @@
 
     socket.on('newmsg', function(message){
         var msgtpl = $('#msgtpl').html();
+
         $('#messages').append('<div class="message">' + Mustache.render(msgtpl,message) + '</div>');
     });
 

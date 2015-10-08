@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>TD : Initiation à Node.JS</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 
   <div id="messages">
     <div class="message" id="msgtpl" style='display:none;'>
-      <div class="info">
+      <div class="text L textL">
         <p><strong>{{user.username}}</strong></p>
         <p>{{message}}</p>
         <span class="date">{{h}}:{{m}}</span>
@@ -39,7 +40,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="../node_modules/mustache/mustache.js"></script>
   <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-  <script src="client.js" charset="utf-8"></script>
+  <script src="js/client.js" charset="utf-8"></script>
 
 </body>
 </html>
