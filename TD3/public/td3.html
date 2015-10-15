@@ -13,14 +13,22 @@
   </div>
 
   <div id="messages">
-    <div class="message" id="msgtpl" style='display:none;'>
-      <div class="text L textL">
-        <p><strong>{{user.username}}</strong></p>
-        <p>{{message}}</p>
-        <span class="date">{{h}}:{{m}}</span>
-      </div>
+      <div class="message" id="msgtpl" style='display:none;'>
+          <div class="Area">
+              <div class="L">
+                  <a>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrEyVlaWx0_FK_sz86j-CnUC_pfEqw_Xq_xZUm5CMIyEI_-X2hRUpx1BHL"/>
+                      <div class="tooltip"><p><strong>{{user.username}}</strong></p></div>
+                  </a>
+              </div>
+              <div class="text R textR">
+                  <p>{{message}}</p>
+                  <br/>
+                  <span class="date">{{h}}:{{m}}</span>
+              </div>
+            </div>
+        </div>
     </div>
-  </div>
 
   <div id="login">
     <form action="" id="loginform">
