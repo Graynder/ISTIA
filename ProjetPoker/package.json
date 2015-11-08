@@ -1,0 +1,10 @@
+{
+    "name": "ApplicationdeChat",
+    "version": "0.0.1",
+    "description": "Application WEB de chat en temps réel",
+    "dependencies": {
+        "socket.io": "latest",
+        "mustache": "latest"
+    },
+    "author": "Graynder"
+}
