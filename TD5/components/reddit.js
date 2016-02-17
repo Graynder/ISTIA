@@ -1,39 +1,63 @@
 /** @jsx React.DOM */
-var MenuNavigation = React.createClass({
+var ElmtNavigation = React.createClass({
+
     render: function() {
-        var creationElemt = function(elemtTexte){
-            return <li>{elemtTexte.data.display_name}</li>
-        };
         return (
-        <div className="navigation">
-                <div className="header">Navigation</div>
-                    <ul>{this.props.elmts.map(creationElemt)}</ul>
-        </div>
+            <li>
+                {this.props.elmt.data.display_name}
+            </li>
         );
     }
 });
 
-var Application = React.createClass({
+var MenuNavigation = React.createClass({
 
-   componentDidMount: function() {
+    render: function() {
         var _this = this;
-        var nomfct= "fn" ;
+
+        var elmts = this.props.elmts.map(function(elmt) {
+            return (
+                <ElmtNavigation key={elmt.data.id}
+                    elmt={elmt}/>
+            );
+        });
+
+        return (
+            <div className="navigation">
+                <div className="header">Navigation</div>
+                <ul>
+                    {elmts}
+                </ul>
+            </div>
+        );
+    }
+
+});
+
+var Application = React.createClass({
+    componentDidMount: function() {
+        var _this = this;
+        var nomfct = "fn";
         var script = document.createElement("script");
         script.src = "http://www.reddit.com/reddits.json?jsonp=" + nomfct;
+
         window[nomfct] = function(jsonData) {
             _this.setState({
                 ElmtNavigations: jsonData.data.children
             });
             delete window[nomfct];
         };
+
         document.head.appendChild(script);
     },
     getInitialState: function() {
         return ({
             ElmtNavigations: [],
-            titre: "Choisissez une catégorie"
+            ElmtsSignet: [],
+            titre: "Choisissez une rubrique"
         });
     },
+
     render: function() {
         return (
             <div>
@@ -44,4 +68,5 @@ var Application = React.createClass({
         );
     }
 });
+
 React.renderComponent(<Application />,document.body);
