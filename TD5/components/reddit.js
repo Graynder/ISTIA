@@ -1,16 +1,29 @@
 /** @jsx React.DOM */
+
 var ElmtNavigation = React.createClass({
 
+    onClick: function() {
+        console.log('ElmtNavigation');
+        console.log(this.props.elmt);
+
+        this.props.elmtSelectionne(this.props.elmt);
+    },
     render: function() {
         return (
-            <li>
+            <li onClick={this.onClick}>
                 {this.props.elmt.data.display_name}
             </li>
         );
     }
+
 });
 
 var MenuNavigation = React.createClass({
+    setSelectedItem: function(elmt) {
+        console.log('MenuNavigation');
+        console.log(elmt);
+        this.props.elmtSelectionne(elmt);
+    },
 
     render: function() {
         var _this = this;
@@ -18,7 +31,8 @@ var MenuNavigation = React.createClass({
         var elmts = this.props.elmts.map(function(elmt) {
             return (
                 <ElmtNavigation key={elmt.data.id}
-                    elmt={elmt}/>
+                    elmt={elmt}
+                    elmtSelectionne={_this.setSelectedItem}/>
             );
         });
 
@@ -37,7 +51,7 @@ var MenuNavigation = React.createClass({
 var Application = React.createClass({
     componentDidMount: function() {
         var _this = this;
-        var nomfct = "fn";
+        var nomfct = "fn" ;
         var script = document.createElement("script");
         script.src = "http://www.reddit.com/reddits.json?jsonp=" + nomfct;
 
@@ -63,10 +77,17 @@ var Application = React.createClass({
             <div>
                 <h1>{this.state.titre}</h1>
                 <MenuNavigation
-                    elmts={this.state.ElmtNavigations}/>
+                    elmts={this.state.ElmtNavigations}
+                    elmtSelectionne={this.setSelectedItem} />
             </div>
         );
+    },
+
+    setSelectedItem: function(elmt) {
+        console.log('Application');
+        console.log(elmt);
     }
+
 });
 
 React.renderComponent(<Application />,document.body);
