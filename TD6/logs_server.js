@@ -21,6 +21,7 @@ var app = http.createServer(function (req, res) {
 
     if (queryData.display !== undefined)
     {
+        console.log('diplay logs');
         stmt = 'select * from logs';
         db.all(stmt, function (err, rows) {
             data = rows;
@@ -29,6 +30,7 @@ var app = http.createServer(function (req, res) {
     }
     else if (queryData.add !== undefined)
     {
+        console.log('add log');
         var timestamp = new Date().getTime();
         stmt = db.prepare('insert into logs (timestamp, msg) values(?, ?)');
         stmt.run(timestamp, queryData.msg);
